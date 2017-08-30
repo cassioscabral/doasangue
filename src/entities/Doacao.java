@@ -19,8 +19,9 @@ public class Doacao implements Serializable {
   	@Id
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="doacao_id")
 	private Long id;
+  	@Temporal(TemporalType.TIMESTAMP)
 	private Date dataDoacao;
-	@OneToOne
+	@ManyToOne
 	private Doador doador;
 	private Usuario legitimador; // pessoa que confirma que essa doacao aconteceu
 	private CentroRecolhimento localDoacao;

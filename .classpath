@@ -11,5 +11,7 @@
 			<attribute name="owner.project.facets" value="jpt.jpa"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="/Users/cassio/Documents/workspaceJava/postgresql-42.1.4.jar"/>
+	<classpathentry kind="lib" path="/Users/cassio/Documents/workspaceJava/postgresql-42.1.4.jre7.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

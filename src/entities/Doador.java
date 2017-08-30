@@ -20,7 +20,7 @@ public class Doador extends Usuario implements Serializable {
 	private String tipoSanguineo;
 	private String CPF;
 	
-	@OneToMany( targetEntity=Doacao.class )
+	@OneToMany( mappedBy="doador" )
     private ArrayList<Doacao> doacoes;
 
 	public ArrayList<Doacao> getDoacoes() {

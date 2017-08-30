@@ -1,5 +1,6 @@
 package entities;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 import javax.persistence.Embedded;
@@ -7,22 +8,26 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
-import javax.persistence.OneToOne;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import javax.persistence.SequenceGenerator;
-
+@Inheritance(strategy=InheritanceType.JOINED)
 @Entity
 @SequenceGenerator(name="usuario_id", sequenceName="usuario_seq", allocationSize=1 )
-public class Usuario {
+public class Usuario implements Serializable {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="usuario_id")
 	private Long id;
 	private String login;
 	private String senha;
 	private boolean administrador;
-	@ManyToMany(targetEntity=CentroRecolhimento.class)
-	private ArrayList<CentroRecolhimento> cRecolhimentoResponsaveis;
+//	@ManyToMany(targetEntity=CentroRecolhimento.class)
+//	private ArrayList<CentroRecolhimento> cRecolhimentoResponsaveis;
 	
 	@Embedded
 	private Endereco endereco;

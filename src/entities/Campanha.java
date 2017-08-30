@@ -18,11 +18,29 @@ public class Campanha implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="campanha_id")
 	private Long id;
+	
+	public Long getId() {
+		return id;
+	}
+
+
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+
+
 	@OneToOne
 	private Usuario criador;
 	private Usuario aprovador;
 	private ArrayList<CentroRecolhimento> locaisDoacao;
 	private boolean aprovada;
+	// TODO
+	// nome campanha
+	// data inicio
+	// data fim
+	
 	
 	public Usuario getCriador() {
 		return criador;
