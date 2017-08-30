@@ -3,9 +3,11 @@
 	<persistence-unit name="doasangue">
 		<provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
 		<class>entities.Usuario</class>
+		<class>entities.Doacao</class>
 		<class>entities.Doador</class>
 		<class>entities.Campanha</class>
-		<class>entities.Doacao</class>
+		<class>entities.CentroRecolhimento</class>
+		<class>entities.CertificadoDoacao</class>
 		<properties>
 			<property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver"/>
 			<property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/doasangue_db"/>

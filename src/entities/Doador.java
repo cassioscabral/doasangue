@@ -2,7 +2,7 @@ package entities;
 
 import entities.Usuario;
 import java.io.Serializable;
-import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.*;
 
@@ -20,15 +20,15 @@ public class Doador extends Usuario implements Serializable {
 	private String tipoSanguineo;
 	private String CPF;
 	
-	@OneToMany( mappedBy="doador" )
-    private ArrayList<Doacao> doacoes;
+	@OneToMany(mappedBy="doador")
+    private List<Doacao> doacoes;
 
-	public ArrayList<Doacao> getDoacoes() {
+	public List<Doacao> getDoacoes() {
 		return doacoes;
 	}
 
 
-	public void setDoacoes(ArrayList<Doacao> doacoes) {
+	public void setDoacoes(List<Doacao> doacoes) {
 		this.doacoes = doacoes;
 	}
 

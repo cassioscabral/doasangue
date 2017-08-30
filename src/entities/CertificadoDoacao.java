@@ -3,7 +3,16 @@ package entities;
 import java.io.Serializable;
 import java.util.Date;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 /**
  * Entity implementation class for Entity: CertificadoDoacao
@@ -18,9 +27,11 @@ public class CertificadoDoacao implements Serializable {
     @Id
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="certificado_doacao_id")
 	private Long id;
-    @OneToOne
+    @OneToOne(fetch=FetchType.LAZY)
+    @JoinColumn(name="DOACAO_ID")
 	private Doacao doacao;
 	private CentroRecolhimento centroRecolhimento;
+	@Temporal(TemporalType.TIMESTAMP)
 	private Date ultimaDataEmissao;
 
 	public Long getId() {

@@ -1,7 +1,7 @@
 package entities;
 
 import java.io.Serializable;
-import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.*;
 
@@ -20,8 +20,8 @@ public class CentroRecolhimento implements Serializable {
 	private Long id;
 	private Float latitude;
 	private Float longitude;
-	@ManyToMany(targetEntity=Usuario.class)
-	private ArrayList<Usuario> responsaveis;
+//	@ManyToMany(targetEntity=Usuario.class)
+	private List<Usuario> responsaveis;
 	
 	@Embedded
 	private Endereco endereco;
@@ -78,13 +78,13 @@ public class CentroRecolhimento implements Serializable {
 
 
 
-	public ArrayList<Usuario> getResponsaveis() {
+	public List<Usuario> getResponsaveis() {
 		return responsaveis;
 	}
 
 
 
-	public void setResponsaveis(ArrayList<Usuario> responsaveis) {
+	public void setResponsaveis(List<Usuario> responsaveis) {
 		this.responsaveis = responsaveis;
 	}
 

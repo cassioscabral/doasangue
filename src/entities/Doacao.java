@@ -21,10 +21,13 @@ public class Doacao implements Serializable {
 	private Long id;
   	@Temporal(TemporalType.TIMESTAMP)
 	private Date dataDoacao;
-	@ManyToOne
+  	@ManyToOne(fetch=FetchType.LAZY)
+    @JoinColumn(name="USUARIO_ID")
 	private Doador doador;
 	private Usuario legitimador; // pessoa que confirma que essa doacao aconteceu
 	private CentroRecolhimento localDoacao;
+	@OneToOne(fetch=FetchType.LAZY, mappedBy="doacao")
+	private CertificadoDoacao certificado;
 
 	public Date getDataDoacao() {
 		return dataDoacao;
@@ -60,6 +63,14 @@ public class Doacao implements Serializable {
 
 	public Doacao() {
 		super();
+	}
+
+	public CertificadoDoacao getCertificado() {
+		return certificado;
+	}
+
+	public void setCertificado(CertificadoDoacao certificado) {
+		this.certificado = certificado;
 	}
 
 }

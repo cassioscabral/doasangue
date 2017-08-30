@@ -1,7 +1,7 @@
 package entities;
 
 import java.io.Serializable;
-import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.*;
 
@@ -18,29 +18,25 @@ public class Campanha implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="campanha_id")
 	private Long id;
-	
-	public Long getId() {
-		return id;
-	}
-
-
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-
-
-	@OneToOne
+	@ManyToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name="USUARIO_ID")
 	private Usuario criador;
 	private Usuario aprovador;
-	private ArrayList<CentroRecolhimento> locaisDoacao;
+	private List<CentroRecolhimento> locaisDoacao;
 	private boolean aprovada;
 	// TODO
 	// nome campanha
 	// data inicio
 	// data fim
 	
+	public Long getId() {
+		return id;
+	}
+
+
+	public void setId(Long id) {
+		this.id = id;
+	}
 	
 	public Usuario getCriador() {
 		return criador;
@@ -66,13 +62,13 @@ public class Campanha implements Serializable {
 
 
 
-	public ArrayList<CentroRecolhimento> getLocaisDoacao() {
+	public List<CentroRecolhimento> getLocaisDoacao() {
 		return locaisDoacao;
 	}
 
 
 
-	public void setLocaisDoacao(ArrayList<CentroRecolhimento> locaisDoacao) {
+	public void setLocaisDoacao(List<CentroRecolhimento> locaisDoacao) {
 		this.locaisDoacao = locaisDoacao;
 	}
 

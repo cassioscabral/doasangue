@@ -1,7 +1,7 @@
 package entities;
 
 import java.io.Serializable;
-import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
@@ -10,8 +10,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
-@Inheritance(strategy=InheritanceType.JOINED)
+@Inheritance(strategy=InheritanceType.SINGLE_TABLE)
 @Entity
 @SequenceGenerator(name="usuario_id", sequenceName="usuario_seq", allocationSize=1 )
 public class Usuario implements Serializable {
@@ -28,6 +29,8 @@ public class Usuario implements Serializable {
 	private boolean administrador;
 //	@ManyToMany(targetEntity=CentroRecolhimento.class)
 //	private ArrayList<CentroRecolhimento> cRecolhimentoResponsaveis;
+	@OneToMany(mappedBy="criador")
+	private List<Campanha> campanhas;
 	
 	@Embedded
 	private Endereco endereco;

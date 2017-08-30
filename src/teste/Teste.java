@@ -20,6 +20,7 @@ public class Teste {
 		
 		Campanha campanha = new Campanha();
 		campanha.setAprovada(true);
+		
 		manager.getTransaction().begin();
 		manager.persist(campanha);
 		manager.persist(doador);
