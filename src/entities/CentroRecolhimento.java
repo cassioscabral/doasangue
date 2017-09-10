@@ -3,7 +3,13 @@ package entities;
 import java.io.Serializable;
 import java.util.List;
 
-import javax.persistence.*;
+import javax.persistence.Embedded;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.SequenceGenerator;
 
 /**
  * Entity implementation class for Entity: CentroRecolhimento
@@ -22,12 +28,38 @@ public class CentroRecolhimento implements Serializable {
 	private Float longitude;
 //	@ManyToMany(targetEntity=Usuario.class)
 	private List<Usuario> responsaveis;
+	@OneToMany(mappedBy = "localDoacao")
+	private List<Doacao> doacoes;
 	
 	@Embedded
 	private Endereco endereco;
 	
 	@Embedded
 	private Contato contato;
+
+	
+	public Long getId() {
+		return id;
+	}
+
+
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+
+
+	public List<Doacao> getDoacoes() {
+		return doacoes;
+	}
+
+
+
+	public void setDoacoes(List<Doacao> doacoes) {
+		this.doacoes = doacoes;
+	}
+
 
 
 	public Contato getContato() {

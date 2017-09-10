@@ -25,6 +25,7 @@ public class Doacao implements Serializable {
     @JoinColumn(name="USUARIO_ID")
 	private Doador doador;
 	private Usuario legitimador; // pessoa que confirma que essa doacao aconteceu
+	@ManyToOne
 	private CentroRecolhimento localDoacao;
 	@OneToOne(fetch=FetchType.LAZY, mappedBy="doacao")
 	private CertificadoDoacao certificado;
