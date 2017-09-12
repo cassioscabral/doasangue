@@ -20,7 +20,7 @@ import javax.persistence.TemporalType;
  */
 @Entity
 @SequenceGenerator(name="certificado_doacao_id", sequenceName="certificado_doacao_seq", allocationSize=1 )
-public class CertificadoDoacao implements Serializable {
+public class CertificadoDoacao extends AbstractEntity implements Serializable {
 
 
     private static final long serialVersionUID = 1L;

@@ -12,14 +12,15 @@ import javax.persistence.*;
  */
 @Entity
 @SequenceGenerator(name="doacao_id", sequenceName="doacao_seq", allocationSize=1 )
-public class Doacao implements Serializable {
+public class Doacao extends AbstractEntity implements Serializable {
 
 
 	private static final long serialVersionUID = 1L;
   	@Id
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="doacao_id")
 	private Long id;
-  	@Temporal(TemporalType.TIMESTAMP)
+
+	@Temporal(TemporalType.TIMESTAMP)
 	private Date dataDoacao;
   	@ManyToOne(fetch=FetchType.LAZY)
     @JoinColumn(name="USUARIO_ID")
@@ -30,6 +31,14 @@ public class Doacao implements Serializable {
 	@OneToOne(fetch=FetchType.LAZY, mappedBy="doacao")
 	private CertificadoDoacao certificado;
 
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+	
 	public Date getDataDoacao() {
 		return dataDoacao;
 	}

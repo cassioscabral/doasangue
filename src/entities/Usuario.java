@@ -15,7 +15,7 @@ import javax.persistence.SequenceGenerator;
 @Inheritance(strategy=InheritanceType.SINGLE_TABLE)
 @Entity
 @SequenceGenerator(name="usuario_id", sequenceName="usuario_seq", allocationSize=1 )
-public class Usuario implements Serializable {
+public class Usuario extends AbstractEntity implements Serializable {
 	
 	/**
 	 * 

@@ -11,7 +11,7 @@ import javax.persistence.*;
  */
 @Entity
 @SequenceGenerator(name="campanha_id", sequenceName="campanha_seq", allocationSize=1 )
-public class Campanha implements Serializable {
+public class Campanha extends AbstractEntity implements Serializable {
 
 	
 	private static final long serialVersionUID = 1L;

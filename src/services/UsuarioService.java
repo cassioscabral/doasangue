@@ -1,7 +1,5 @@
 package services;
 
-import com.sun.tools.xjc.reader.xmlschema.bindinfo.BIConversion.User;
-
 import entities.Usuario;
 
 public interface UsuarioService {

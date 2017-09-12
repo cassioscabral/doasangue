@@ -17,7 +17,7 @@ import javax.persistence.SequenceGenerator;
  */
 @Entity
 @SequenceGenerator(name="centro_recolhimento_id", sequenceName="centro_recolhimento_seq", allocationSize=1 )
-public class CentroRecolhimento implements Serializable {
+public class CentroRecolhimento extends AbstractEntity implements Serializable {
 
 
 	private static final long serialVersionUID = 1L;
